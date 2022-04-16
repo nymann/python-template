@@ -26,3 +26,19 @@ project_name [Repo Name]: Ransom Baby Decryptor
 # I like to have my code inside an src/ directory, you can change the name of this here.
 src_dir [src]:
 ```
+
+After cookiecutter has generated the project, it's time to initialise our git repo.
+You can find the instructions to this after creating your project on <https://github.com/new>. However in my case since I use ssh
+
+```sh
+# Initialise git project (make sure you are in the correct directory)
+git init
+# Add all changes
+git add .
+# Commit them
+git commit -m ":tada: Init python-template"
+# Add github repo as origin
+git remote add origin git@github.com:nymann/python-template.git
+# Push them to github on the master branch.
+git push -u origin master
+```
