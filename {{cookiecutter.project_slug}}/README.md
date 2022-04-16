@@ -4,11 +4,22 @@
 
 By installing `make` you can do the following:
 
-```py
-make lint # Runs flake8, black and isort in checking mode.
-make test # Runs unit tests.
-make unit-tests # Runs unit tests.
-make integration-tests # Runs integration tests (there are none by default).
+```sh
+$ make help
+make install
+ - Installs {{cookiecutter.project_slug}}.
+make install-all
+ - Install {{cookiecutter.project_slug}}, all development and tests dependencies.
+make test
+ - Runs integration tests and unit tests
+make unit-test
+ - Runs integration tests
+make integration-tests
+ - Runs unit tests
+make lint
+ - Lints your code (black, flake8 and mypy).
+make fix
+ - Autofixes imports and some formatting.
 ```
 
 ### Developing on Linux
