@@ -25,3 +25,6 @@ jobs:
       - name: Analysing the code with pylint
         run: |
           cookiecutter --no-input -f ./
+          cd snake_case_repo_name
+          make lint
+          make tests
