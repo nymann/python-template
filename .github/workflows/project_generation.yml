@@ -28,3 +28,4 @@ jobs:
           cd snake_case_repo_name
           make lint
           make test
+          docker build -f docker/Dockerfile .

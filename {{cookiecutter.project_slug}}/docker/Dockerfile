@@ -8,7 +8,7 @@ RUN apt-get install -y --no-install-recommends make git python3-pip &&\
 
 WORKDIR /usr/app
 COPY . .
-RUN make install-production
+RUN make install
 
 FROM base-image AS production-image
 # RUN python3 -m site # if this ever breaks to get dist-packages folder.
