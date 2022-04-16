@@ -1,0 +1,24 @@
+name: Project Generation CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+
+
+jobs:
+  generation_test:
+    name: Generate template
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup python 3 for generation
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+      - name: Generate template
+        run: |
+          pip install cookiecutter
+          cookiecutter --no-input -f ./
