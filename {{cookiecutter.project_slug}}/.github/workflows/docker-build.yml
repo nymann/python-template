@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Build
 
 on:
   push:
@@ -6,13 +6,10 @@ on:
   pull_request:
     branches: [master]
 
-env:
-  CI_REGISTRY_IMAGE: {{ cookiecutter.project_slug }}
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: |
-          make docker-build-onbuild-ci
+        run: make docker-build
