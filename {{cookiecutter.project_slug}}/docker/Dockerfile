@@ -12,7 +12,7 @@ RUN make install
 
 FROM base-image AS production-image
 # RUN python3 -m site # if this ever breaks to get dist-packages folder.
-COPY --from=compile-image /usr/local/lib/python3.10/dist-packages/ /usr/local/lib/python3.9/dist-packages/
+COPY --from=compile-image /usr/local/lib/python3.10/dist-packages/ /usr/local/lib/python3.10/dist-packages/
 COPY --from=compile-image /usr/local/bin/{{cookiecutter.project_slug}} /usr/local/bin/
 
 USER non_privileged_user
