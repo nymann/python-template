@@ -1,6 +1,8 @@
 FROM debian:bookworm AS base-image
-RUN apt-get update && useradd --system non_privileged_user
-RUN apt-get install --assume-yes --no-install-recommends python3
+RUN apt-get update && \
+    apt-get install --assume-yes --no-install-recommends python3 && \
+    useradd -m --shell /bin/bash -u 1000 non_privileged_user && \
+    export SITE_PACKAGE=$(python3 -c "import site;print(site.getsitepackages()[0])")
 
 FROM base-image AS compile-image
 RUN apt-get install -y --no-install-recommends make git python3-pip &&\
@@ -11,8 +13,7 @@ COPY . .
 RUN make install
 
 FROM base-image AS production-image
-# RUN python3 -m site # if this ever breaks to get dist-packages folder.
-COPY --from=compile-image /usr/local/lib/python3.10/dist-packages/ /usr/local/lib/python3.10/dist-packages/
+COPY --from=compile-image $SITE_PACKAGE $SITE_PACKAGE
 COPY --from=compile-image /usr/local/bin/{{cookiecutter.project_slug}} /usr/local/bin/
 
 USER non_privileged_user
