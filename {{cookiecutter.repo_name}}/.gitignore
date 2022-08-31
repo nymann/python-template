@@ -9,12 +9,12 @@ tags
 pytest_runner-5.3.1-py3.9.egg
 README.txt
 
-src/{{cookiecutter.project_slug}}.egg-info:
+src/{{cookiecutter.package_name}}.egg-info:
 dependency_links.txt
 entry_points.txt
 PKG-INFO
 requires.txt
-src/{{cookiecutter.project_slug}}/version.py
+src/{{cookiecutter.package_name}}/version.py
 SOURCES.txt
 top_level.txt
 __pycache__/

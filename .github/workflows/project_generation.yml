@@ -25,7 +25,7 @@ jobs:
       - name: Generate example project and run lint and tests
         run: |
           cookiecutter --no-input -f ./
-          cd snake_case_repo_name
+          cd project-name
           make lint
           make test
           make docker-build

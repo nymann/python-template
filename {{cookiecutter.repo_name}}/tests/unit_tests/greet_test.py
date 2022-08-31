@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 import pytest
 from pytest_mock.plugin import MockerFixture
 
-from {{cookiecutter.project_slug}}.main import welcome
+from {{cookiecutter.package_name}}.main import welcome
 
 
 @pytest.fixture()
