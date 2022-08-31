@@ -1,4 +1,4 @@
-DOCKER_REPO?={%- if cookiecutter.docker_registry != "" -%}{{cookiecutter.docker_registry}}{% endif %}/{{ cookiecutter.docker_repo }}
+DOCKER_REPO?={%- if cookiecutter.docker_registry != "default" -%}{{cookiecutter.docker_registry}}/{% endif %}{{ cookiecutter.docker_repo }}
 DOCKER_TAG?=${DOCKER_REPO}:$(shell git describe --tag --always | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 
 package: ${VERSION} setup.py
