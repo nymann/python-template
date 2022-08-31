@@ -5,9 +5,9 @@ By installing `make` you can do the following:
 ```sh
 $ make help
 make install
- - Installs {{cookiecutter.project_slug}}.
+ - Installs {{cookiecutter.package_name}}.
 make install-all
- - Install {{cookiecutter.project_slug}}, all development and tests dependencies.
+ - Install {{cookiecutter.package_name}}, all development and tests dependencies.
 make test
  - Runs integration tests and unit tests
 make unit-test

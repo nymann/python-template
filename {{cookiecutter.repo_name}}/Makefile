@@ -1,5 +1,5 @@
 TARGET?=local
-COMPONENT?={{cookiecutter.project_slug}}
+COMPONENT?={{cookiecutter.package_name}}
 VERSION:={{cookiecutter.src_dir}}/${COMPONENT}/version.py
 
 include make/common.mk
