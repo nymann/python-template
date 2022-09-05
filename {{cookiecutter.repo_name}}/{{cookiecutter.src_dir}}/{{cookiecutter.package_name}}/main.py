@@ -4,8 +4,8 @@ app = typer.Typer()
 
 
 @app.command()
-def welcome(name: str) -> None:
-    typer.echo(f"Welcome {name}!")
+def main() -> None:
+    typer.echo("Hello from main")
 
 
 if __name__ == "__main__":

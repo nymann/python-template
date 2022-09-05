@@ -1,4 +1,4 @@
-DOCKER_REPO?={%- if cookiecutter.docker_registry != "default" -%}{{cookiecutter.docker_registry}}/{% endif %}{{ cookiecutter.docker_repo }}
+DOCKER_REPO?={%- if cookiecutter.docker_registry != "default" -%}{{cookiecutter.docker_registry}}/{% endif %}{{ cookiecutter.repo_name }}
 DOCKER_TAG?=${DOCKER_REPO}:$(shell git describe --tag --always | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 
 package: ${VERSION} setup.py
@@ -15,8 +15,4 @@ docker-push: ${VERSION}
 		-f docker/Dockerfile .
 	@docker push --all-tags ${DOCKER_REPO}
 
-version-requirements: ${VERSION}
-	# This is used as a precursor to building images via the pipeline
-	@echo "${VERSION}"
-
-.PHONY:docker-build docker-push version-requirements package
+.PHONY:docker-build docker-push package

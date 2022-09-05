@@ -9,3 +9,6 @@ install-dev: ${VERSION}
 
 install-tests: ${VERSION}
 	@pip install -e '.[tests]'
+
+install-package: ${VERSION}
+	@pip install '.[package]'
